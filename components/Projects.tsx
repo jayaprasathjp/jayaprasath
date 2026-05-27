@@ -32,7 +32,7 @@ export function Projects({ title, subtitle, projects }: ProjectsProps) {
         {projects.map((project) => (
           <article
             key={project.id}
-            className="group rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 hover:-translate-y-2 hover:border-emerald-300/70 hover:shadow-[0_22px_40px_-24px_rgba(16,185,129,0.7)] sm:p-6"
+            className="group transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 [transform-style:preserve-3d] hover:[transform:translateY(-8px)_rotateX(3deg)_rotateY(-2deg)] hover:border-emerald-300/70 hover:shadow-[0_22px_40px_-24px_rgba(16,185,129,0.7)] motion-reduce:hover:transform-none sm:p-6"
           >
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-slate-100 sm:text-xl">{project.title}</h3>

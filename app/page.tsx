@@ -4,6 +4,7 @@ import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
+import { BackgroundFx } from "@/components/BackgroundFx";
 
 const heroContent = {
   name: "Jayaprasath K",
@@ -165,6 +166,8 @@ const contactContent = {
 export default function Home() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-zinc-950 text-slate-100">
+      <BackgroundFx />
+
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-8 sm:py-6 lg:px-10">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300/90">
           Portfolio

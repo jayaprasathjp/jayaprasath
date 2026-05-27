@@ -32,7 +32,7 @@ export function Skills({ title, subtitle, categories }: SkillsProps) {
         {categories.map((category) => (
           <article
             key={category.id}
-            className="rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-emerald-300/60 sm:p-6"
+            className="transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 [transform-style:preserve-3d] hover:[transform:translateY(-6px)_rotateX(2deg)_rotateY(1deg)] hover:border-emerald-300/60 motion-reduce:hover:transform-none sm:p-6"
           >
             <h3 className="mb-2 text-lg font-semibold text-slate-100">{category.title}</h3>
             <p className="mb-4 text-sm leading-7 text-slate-300">{category.description}</p>
