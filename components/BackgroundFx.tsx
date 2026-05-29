@@ -4,6 +4,25 @@ import React, { useEffect, useRef } from "react";
 
 export function BackgroundFx() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const auroraRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      if (gridRef.current) {
+        gridRef.current.style.transform = `translate3d(0, ${scrolled * 0.15}px, 0)`;
+      }
+      if (auroraRef.current) {
+        auroraRef.current.style.transform = `translate3d(0, ${scrolled * 0.07}px, 0)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -27,10 +46,10 @@ export function BackgroundFx() {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.3; // Very slow, elegant drift
-        this.vy = (Math.random() - 0.5) * 0.3;
-        this.radius = Math.random() * 1.5 + 0.5;
-        this.color = Math.random() > 0.5 ? "rgba(16, 185, 129, 0.35)" : "rgba(34, 211, 238, 0.25)";
+        this.vx = (Math.random() - 0.5) * 0.35; // Slow, elegant drift
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.radius = Math.random() * 2.2 + 0.8; // Larger, more visible particles
+        this.color = Math.random() > 0.5 ? "rgba(16, 185, 129, 0.7)" : "rgba(34, 211, 238, 0.6)"; // Richer opacities
       }
 
       update(mouseX: number, mouseY: number) {
@@ -103,13 +122,13 @@ export function BackgroundFx() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 100) {
-            const alpha = (1 - dist / 100) * 0.09;
+          if (dist < 120) {
+            const alpha = (1 - dist / 120) * 0.26; // Faint but clearly viewable plexus lines
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`;
-            ctx.lineWidth = 0.6;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
@@ -139,21 +158,42 @@ export function BackgroundFx() {
       {/* Rich Cosmic Slate Background */}
       <div className="absolute inset-0 bg-zinc-950" />
 
+      {/* Radial vignette for perfect focal styling - Moved behind canvas and glow layers */}
+      <div 
+        className="absolute inset-0" 
+        style={{
+          background: "radial-gradient(circle, transparent 20%, rgba(9, 9, 11, 0.75) 100%)"
+        }}
+      />
+
       {/* Cosmic Aurora Shift Overlay */}
-      <div className="aurora-layer absolute -inset-[15%] opacity-55" />
+      <div 
+        ref={auroraRef}
+        className="aurora-layer absolute -inset-[15%] opacity-75" 
+        style={{ willChange: "transform" }}
+      />
 
       {/* Dynamic Interactive Plexus Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-60" />
+      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" />
 
-      {/* Harmonious Radial Glowing Accents */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(16,185,129,0.18),transparent_40%),radial-gradient(circle_at_82%_12%,rgba(34,211,238,0.16),transparent_38%),radial-gradient(circle_at_50%_88%,rgba(59,130,246,0.12),transparent_42%)]" />
+      {/* Harmonious Radial Glowing Accents - Pure CSS to prevent Tailwind split errors */}
+      <div 
+        className="absolute inset-0" 
+        style={{
+          background: "radial-gradient(circle at 12% 20%, rgba(16, 185, 129, 0.28), transparent 45%), radial-gradient(circle at 82% 12%, rgba(34, 211, 238, 0.25), transparent 40%), radial-gradient(circle at 50% 88%, rgba(59, 130, 246, 0.18), transparent 45%)"
+        }}
+      />
 
-      {/* Subtle modern Grid layout */}
-      <div className="absolute inset-0 opacity-[0.09] [background-size:40px_40px] [background-image:linear-gradient(rgba(148,163,184,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.15)_1px,transparent_1px)]" />
-
-      {/* Radial vignette for perfect focal styling */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_25%,rgba(9,9,11,0.85)_100%)]" />
+      {/* Subtle modern Grid layout - Standard CSS to guarantee visual rendering */}
+      <div 
+        ref={gridRef}
+        className="absolute inset-0 opacity-[0.11]" 
+        style={{
+          backgroundSize: "40px 40px",
+          backgroundImage: "linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)",
+          willChange: "transform"
+        }}
+      />
     </div>
   );
 }
-

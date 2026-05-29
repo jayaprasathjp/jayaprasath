@@ -14,7 +14,7 @@ export function Hero({ name, role, tagline }: HeroProps) {
       tiltMax={8}
       glowColor="rgba(34, 211, 238, 0.12)" // Beautiful soft cyan spotlight glow
       glowSize={450}
-      className="relative isolate overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/50 px-4 py-10 backdrop-blur-xl sm:rounded-3xl sm:px-8 sm:py-14 lg:px-14 lg:py-16"
+      className="relative isolate overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/50 px-4 py-10 backdrop-blur-[6px] sm:rounded-3xl sm:px-8 sm:py-14 lg:px-14 lg:py-16"
     >
       <article className="relative z-10 mx-auto flex w-full max-w-4xl flex-col gap-7 sm:gap-8">
         <div className="animate-fade-up flex flex-col gap-4 [animation-delay:180ms] sm:gap-5">

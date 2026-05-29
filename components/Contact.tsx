@@ -18,7 +18,7 @@ export function Contact({ email, links, copyrightName }: ContactProps) {
       aria-label="Contact"
       className="mx-auto w-full max-w-6xl px-4 pb-10 sm:px-8 lg:px-10"
     >
-      <section className="rounded-2xl border border-slate-800/70 bg-slate-900/50 px-4 py-6 backdrop-blur sm:rounded-3xl sm:px-8 sm:py-8">
+      <section className="rounded-2xl border border-slate-800/70 bg-slate-900/50 px-4 py-6 backdrop-blur-[6px] sm:rounded-3xl sm:px-8 sm:py-8">
         <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-300/90">

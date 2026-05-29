@@ -18,7 +18,7 @@ export function Projects({ title, subtitle, projects }: ProjectsProps) {
     <section
       id="projects"
       aria-label="Featured projects"
-      className="relative rounded-2xl border border-slate-800/70 bg-slate-900/40 px-4 py-10 backdrop-blur-xl sm:rounded-3xl sm:px-8 sm:py-14 lg:px-14"
+      className="relative rounded-2xl border border-slate-800/70 bg-slate-900/40 px-4 py-10 backdrop-blur-[6px] sm:rounded-3xl sm:px-8 sm:py-14 lg:px-14"
     >
       <header className="mb-8 flex max-w-3xl flex-col gap-3 sm:mb-10">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-300/90 sm:text-sm sm:tracking-[0.22em]">

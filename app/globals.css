@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   width: 100%;
@@ -28,6 +32,7 @@ body {
 
 body {
   margin: 0;
+  background-color: #09090b;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
