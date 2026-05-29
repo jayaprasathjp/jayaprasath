@@ -56,6 +56,29 @@ svg {
   }
 }
 
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @layer utilities {
   .aurora-layer {
     background:
@@ -64,5 +87,21 @@ svg {
       radial-gradient(circle at 62% 84%, rgba(79, 70, 229, 0.24), transparent 44%);
     animation: auroraShift 16s ease-in-out infinite;
     will-change: transform, filter;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-float-slow {
+    animation: floatSlow 9s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-layer,
+  .animate-fade-up,
+  .animate-float-slow {
+    animation: none !important;
   }
 }

@@ -18,8 +18,6 @@ export function Projects({ title, subtitle, projects }: ProjectsProps) {
       aria-label="Featured projects"
       className="relative rounded-2xl border border-slate-800/70 bg-slate-900/40 px-4 py-10 backdrop-blur-xl sm:rounded-3xl sm:px-8 sm:py-14 lg:px-14"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.14),transparent_44%),radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.12),transparent_40%)]" />
-
       <header className="mb-8 flex max-w-3xl flex-col gap-3 sm:mb-10">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-300/90 sm:text-sm sm:tracking-[0.22em]">
           Featured Builds
@@ -29,10 +27,11 @@ export function Projects({ title, subtitle, projects }: ProjectsProps) {
       </header>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 sm:gap-5 lg:gap-6">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article
             key={project.id}
-            className="group transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 [transform-style:preserve-3d] hover:[transform:translateY(-8px)_rotateX(3deg)_rotateY(-2deg)] hover:border-emerald-300/70 hover:shadow-[0_22px_40px_-24px_rgba(16,185,129,0.7)] motion-reduce:hover:transform-none sm:p-6"
+            className="animate-fade-up group transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 [transform-style:preserve-3d] hover:[transform:translateY(-8px)_rotateX(3deg)_rotateY(-2deg)] hover:border-emerald-300/70 hover:shadow-[0_22px_40px_-24px_rgba(16,185,129,0.7)] motion-reduce:hover:transform-none sm:p-6"
+            style={{ animationDelay: `${160 + index * 120}ms` }}
           >
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-slate-100 sm:text-xl">{project.title}</h3>

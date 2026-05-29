@@ -22,8 +22,6 @@ export function Experience({ title, subtitle, items }: ExperienceProps) {
       aria-label="Experience timeline"
       className="relative rounded-2xl border border-slate-800/70 bg-slate-900/40 px-4 py-10 backdrop-blur-xl sm:rounded-3xl sm:px-8 sm:py-14 lg:px-14"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.14),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.1),transparent_40%)]" />
-
       <header className="mb-8 flex max-w-3xl flex-col gap-3 sm:mb-10">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-300/90 sm:text-sm sm:tracking-[0.22em]">
           Professional Journey
@@ -33,8 +31,12 @@ export function Experience({ title, subtitle, items }: ExperienceProps) {
       </header>
 
       <div className="relative ml-2 border-l border-emerald-400/30 pl-6 sm:ml-3 sm:pl-8">
-        {items.map((item) => (
-          <article key={item.id} className="group relative mb-8 last:mb-0">
+        {items.map((item, index) => (
+          <article
+            key={item.id}
+            className="animate-fade-up group relative mb-8 last:mb-0"
+            style={{ animationDelay: `${120 + index * 120}ms` }}
+          >
             <span className="absolute -left-[1.95rem] top-6 h-3.5 w-3.5 rounded-full border border-emerald-200/70 bg-emerald-300 shadow-[0_0_0_4px_rgba(16,185,129,0.2),0_0_24px_rgba(16,185,129,0.65)] transition duration-300 group-hover:scale-110 group-hover:shadow-[0_0_0_5px_rgba(16,185,129,0.26),0_0_28px_rgba(16,185,129,0.8)] sm:-left-[2.2rem]" />
 
             <div className="rounded-2xl border border-slate-800/80 bg-slate-950/60 p-5 transition duration-300 group-hover:-translate-y-1 group-hover:border-emerald-300/50 group-hover:bg-slate-900/70 sm:p-6">

@@ -165,16 +165,16 @@ const contactContent = {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-zinc-950 text-slate-100">
+    <div className="relative min-h-screen overflow-x-clip bg-transparent text-slate-100">
       <BackgroundFx />
 
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-8 sm:py-6 lg:px-10">
+      <header className="animate-fade-up mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 [animation-delay:80ms] sm:px-8 sm:py-6 lg:px-10">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300/90">
           Portfolio
         </p>
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 pb-16 sm:gap-20 sm:px-8 sm:pb-20 lg:px-10">
+      <main className="animate-fade-up mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 pb-16 [animation-delay:140ms] sm:gap-20 sm:px-8 sm:pb-20 lg:px-10">
         <Hero
           name={heroContent.name}
           role={heroContent.role}
