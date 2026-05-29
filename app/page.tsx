@@ -161,55 +161,57 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-clip bg-transparent text-slate-100">
       <BackgroundFx />
 
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-8 sm:py-6 lg:px-10">
-        <ScrollReveal delay={50} direction="down" distance={15}>
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300/90">
-            Portfolio
-          </p>
-        </ScrollReveal>
-      </header>
+      <div className="relative z-10">
+        <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-8 sm:py-6 lg:px-10">
+          <ScrollReveal delay={50} direction="down" distance={15}>
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300/90">
+              Portfolio
+            </p>
+          </ScrollReveal>
+        </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 pb-16 sm:gap-20 sm:px-8 sm:pb-20 lg:px-10">
+        <main className="mx-auto flex w-full max-w-6xl flex-col gap-14 px-4 pb-16 sm:gap-20 sm:px-8 sm:pb-20 lg:px-10">
+          <ScrollReveal delay={100} direction="up">
+            <Hero
+              name={heroContent.name}
+              role={heroContent.role}
+              tagline={heroContent.tagline}
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} direction="up">
+            <Experience
+              title={experienceContent.title}
+              subtitle={experienceContent.subtitle}
+              items={[...experienceContent.items]}
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} direction="up">
+            <Projects
+              title={projectsContent.title}
+              subtitle={projectsContent.subtitle}
+              projects={projectsContent.projects}
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} direction="up">
+            <Skills
+              title={skillsContent.title}
+              subtitle={skillsContent.subtitle}
+              categories={skillsContent.categories}
+            />
+          </ScrollReveal>
+        </main>
+
         <ScrollReveal delay={100} direction="up">
-          <Hero
-            name={heroContent.name}
-            role={heroContent.role}
-            tagline={heroContent.tagline}
+          <Contact
+            email={contactContent.email}
+            links={contactContent.links}
+            copyrightName={contactContent.copyrightName}
           />
         </ScrollReveal>
-
-        <ScrollReveal delay={100} direction="up">
-          <Experience
-            title={experienceContent.title}
-            subtitle={experienceContent.subtitle}
-            items={[...experienceContent.items]}
-          />
-        </ScrollReveal>
-
-        <ScrollReveal delay={100} direction="up">
-          <Projects
-            title={projectsContent.title}
-            subtitle={projectsContent.subtitle}
-            projects={projectsContent.projects}
-          />
-        </ScrollReveal>
-
-        <ScrollReveal delay={100} direction="up">
-          <Skills
-            title={skillsContent.title}
-            subtitle={skillsContent.subtitle}
-            categories={skillsContent.categories}
-          />
-        </ScrollReveal>
-      </main>
-
-      <ScrollReveal delay={100} direction="up">
-        <Contact
-          email={contactContent.email}
-          links={contactContent.links}
-          copyrightName={contactContent.copyrightName}
-        />
-      </ScrollReveal>
+      </div>
     </div>
   );
 }

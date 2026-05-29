@@ -11,10 +11,10 @@ export function BackgroundFx() {
     const handleScroll = () => {
       const scrolled = window.scrollY;
       if (gridRef.current) {
-        gridRef.current.style.transform = `translate3d(0, ${scrolled * 0.15}px, 0)`;
+        gridRef.current.style.transform = `translate3d(0, ${scrolled * 0.05}px, 0)`;
       }
       if (auroraRef.current) {
-        auroraRef.current.style.transform = `translate3d(0, ${scrolled * 0.07}px, 0)`;
+        auroraRef.current.style.transform = `translate3d(0, ${scrolled * 0.02}px, 0)`;
       }
     };
 
@@ -102,10 +102,29 @@ export function BackgroundFx() {
       mouse.y = -1000;
     };
 
+    let prevWidth = window.innerWidth;
+    let prevHeight = window.innerHeight;
+
     const handleResize = () => {
       if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+
+      // Only resize if the width changed (e.g. orientation swap) or height changed significantly.
+      // This completely prevents vertical address bar collapses on mobile scroll from clearing particles!
+      if (newWidth !== prevWidth || Math.abs(newHeight - prevHeight) > 120) {
+        width = canvas.width = newWidth;
+        height = canvas.height = newHeight;
+        prevWidth = newWidth;
+        prevHeight = newHeight;
+
+        // Re-populate particles to fit new viewport dimensions
+        particles.length = 0;
+        const newCount = Math.min(65, Math.floor((width * height) / 22000));
+        for (let i = 0; i < newCount; i++) {
+          particles.push(new Particle());
+        }
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -154,7 +173,7 @@ export function BackgroundFx() {
   }, []);
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
       {/* Rich Cosmic Slate Background */}
       <div className="absolute inset-0 bg-zinc-950" />
 
