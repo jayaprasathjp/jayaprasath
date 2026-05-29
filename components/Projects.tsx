@@ -1,3 +1,5 @@
+import { InteractiveCard } from "./InteractiveCard";
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -28,32 +30,38 @@ export function Projects({ title, subtitle, projects }: ProjectsProps) {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 sm:gap-5 lg:gap-6">
         {projects.map((project, index) => (
-          <article
+          <InteractiveCard
             key={project.id}
-            className="animate-fade-up group transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 [transform-style:preserve-3d] hover:[transform:translateY(-8px)_rotateX(3deg)_rotateY(-2deg)] hover:border-emerald-300/70 hover:shadow-[0_22px_40px_-24px_rgba(16,185,129,0.7)] motion-reduce:hover:transform-none sm:p-6"
+            tiltMax={12}
+            glowColor="rgba(16, 185, 129, 0.15)" // Beautiful emerald glow
+            glowSize={300}
+            className="animate-fade-up transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 hover:border-emerald-300/70 sm:p-6"
             style={{ animationDelay: `${160 + index * 120}ms` }}
           >
-            <div className="mb-4">
-              <h3 className="text-lg font-semibold text-slate-100 sm:text-xl">{project.title}</h3>
-            </div>
+            <article>
+              <div className="mb-4" style={{ transform: "translateZ(25px)" }}>
+                <h3 className="text-lg font-semibold text-slate-100 sm:text-xl">{project.title}</h3>
+              </div>
 
-            <p className="mb-5 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
-              {project.description}
-            </p>
+              <p className="mb-5 text-sm leading-7 text-slate-300 sm:text-base sm:leading-8" style={{ transform: "translateZ(15px)" }}>
+                {project.description}
+              </p>
 
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((technology) => (
-                <span
-                  key={technology}
-                  className="rounded-full border border-cyan-300/35 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-100"
-                >
-                  {technology}
-                </span>
-              ))}
-            </div>
-          </article>
+              <div className="flex flex-wrap gap-2" style={{ transform: "translateZ(10px)" }}>
+                {project.techStack.map((technology) => (
+                  <span
+                    key={technology}
+                    className="rounded-full border border-cyan-300/35 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-100"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </InteractiveCard>
         ))}
       </div>
     </section>
   );
 }
+

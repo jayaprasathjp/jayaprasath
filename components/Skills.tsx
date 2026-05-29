@@ -1,3 +1,5 @@
+import { InteractiveCard } from "./InteractiveCard";
+
 export interface SkillCategory {
   id: string;
   title: string;
@@ -28,27 +30,33 @@ export function Skills({ title, subtitle, categories }: SkillsProps) {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 sm:gap-5 lg:gap-6">
         {categories.map((category, index) => (
-          <article
+          <InteractiveCard
             key={category.id}
-            className="animate-fade-up transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 [transform-style:preserve-3d] hover:[transform:translateY(-6px)_rotateX(2deg)_rotateY(1deg)] hover:border-emerald-300/60 motion-reduce:hover:transform-none sm:p-6"
+            tiltMax={10}
+            glowColor="rgba(34, 211, 238, 0.15)" // Beautiful cyan glow
+            glowSize={300}
+            className="animate-fade-up transform-gpu rounded-2xl border border-slate-700/70 bg-slate-800/50 p-5 backdrop-blur transition duration-300 hover:border-cyan-300/60 sm:p-6"
             style={{ animationDelay: `${180 + index * 120}ms` }}
           >
-            <h3 className="mb-2 text-lg font-semibold text-slate-100">{category.title}</h3>
-            <p className="mb-4 text-sm leading-7 text-slate-300">{category.description}</p>
+            <article>
+              <h3 className="mb-2 text-lg font-semibold text-slate-100" style={{ transform: "translateZ(25px)" }}>{category.title}</h3>
+              <p className="mb-4 text-sm leading-7 text-slate-300" style={{ transform: "translateZ(15px)" }}>{category.description}</p>
 
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-emerald-300/30 bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-100"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </article>
+              <div className="flex flex-wrap gap-2" style={{ transform: "translateZ(10px)" }}>
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-emerald-300/30 bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-100"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </InteractiveCard>
         ))}
       </div>
     </section>
   );
 }
+

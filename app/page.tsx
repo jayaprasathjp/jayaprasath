@@ -11,14 +11,6 @@ const heroContent = {
   role: "Associate Application Developer @ United Parcel Service (UPS)",
   tagline:
     "I build reliable, user-friendly applications with scalable architecture, full-stack engineering, and cloud-native delivery.",
-  primaryCta: {
-    label: "View Work",
-    href: "#projects",
-  },
-  secondaryCta: {
-    label: "Contact",
-    href: "#contact",
-  },
 } as const;
 
 const experienceContent = {
@@ -179,8 +171,6 @@ export default function Home() {
           name={heroContent.name}
           role={heroContent.role}
           tagline={heroContent.tagline}
-          primaryCta={heroContent.primaryCta}
-          secondaryCta={heroContent.secondaryCta}
         />
 
         <Experience
