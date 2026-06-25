@@ -9,7 +9,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 const heroContent = {
   name: "Jayaprasath K",
-  role: "Associate Application Developer @ United Parcel Service (UPS)",
+  role: "Application Developer @ United Parcel Service (UPS)",
   tagline:
     "I build reliable, user-friendly applications with scalable architecture, full-stack engineering, and cloud-native delivery.",
 } as const;
@@ -17,92 +17,89 @@ const heroContent = {
 const experienceContent = {
   title: "Experience Timeline",
   subtitle:
-    "Career progression across UPS and academic innovation, focused on scalable systems, secure delivery, and product impact.",
+    "Career progression across industries and academic innovation, focused on scalable systems, secure delivery, and product impact.",
   items: [
     {
-      id: "ups-associate-application-developer",
-      role: "Associate Application Developer",
-      organization: "UPS India Technology Center",
+      id: "ups-application-developer",
+      role: "Application Developer",
+      organization: "United Parcel Service",
       period: "June 2025 - Present",
       location: "Chennai, India",
       summary:
-        "Lead development of resilient enterprise features for GDAP, with focus on scalable backend services and secure cloud operations.",
+        "Developing core enterprise microservices and orchestrating automated CI/CD pipelines to accelerate reliable, scalable software delivery.",
       highlights: [
-        "Develop scalable microservices and integrated resilient backend solutions for high-throughput platform workflows.",
-        "Delivered secure remediations across GCP resources, including Firestore and Pub/Sub, to improve compliance and runtime safety.",
-        "Improved deployment confidence through container-based delivery patterns and stronger service integration reliability.",
+        "Developed and maintained core enterprise microservices utilizing Java and Spring Boot for the Hub Automation Platform (GDAP).",
+        "Transitioned from manual to automated deployments by engineering an Azure DevOps (ADO) pipeline on an on-premise Linux server.",
+        "Configured the CI/CD pipeline to execute upon PR approval, reducing manual deployment time by 80% for GCP releases.",
+        "Orchestrated Agile sprint planning to translate business requirements into scalable, production-ready code, accelerating delivery."
       ],
       technologies: [
         "Java",
         "Spring Boot",
-        "Python",
-        "FastAPI",
+        "Azure DevOps",
         "GCP",
-        "Cloud Run",
-        "Firestore",
-        "Pub/Sub",
-        "IAM",
+        "Linux",
+        "CI/CD"
       ],
     },
     {
-      id: "ups-application-developer",
-      role: "Application Developer Intern",
-      organization: "UPS India Technology Center",
+      id: "ups-software-engineering-intern",
+      role: "Software Engineering Intern",
+      organization: "United Parcel Service",
       period: "Jan 2025 - May 2025",
       location: "Chennai, India",
       summary:
-        "Contributed to application and backend modules for data platform initiatives, improving system efficiency and service quality.",
+        "Spearheaded framework evaluations and built proof-of-concept applications to drive enterprise modernization.",
       highlights: [
-        "Implemented backend APIs and integration workflows to support platform feature rollouts.",
-        "Collaborated on full-stack enhancements that improved usability for internal stakeholders.",
-        "Supported cloud operations and release pipelines for stable service deployment.",
+        "Spearheaded the evaluation and adoption of modern technology frameworks for enterprise use to drive internal modernization.",
+        "Delivered robust proof-of-concept applications that validated framework viability, resulting in seamless Agile sprint integration."
       ],
-      technologies: ["Java", "Spring Boot", "Node.js", "GCP", "SQL", "MongoDB"],
+      technologies: ["Modern Frameworks", "Agile"],
     },
     {
       id: "mkce-innovation-hub",
       role: "Student",
       organization: "Technology Innovation Hub - MKCE",
       period: "May 2023 - Jan 2025",
-      location: "Namakkal, India",
+      location: "Karur, India",
       summary:
-        "Built a strong engineering foundation through practical projects spanning frontend, backend, and service-based applications.",
+        "Selected as one of 30 top students across the college to learn software development and build production-ready applications.",
       highlights: [
-        "Developed enterprise-oriented solutions such as HRMS and placement platforms with end-to-end ownership.",
-        "Strengthened software design fundamentals with hands-on full-stack development across multiple domains.",
+        "Developed enterprise-oriented solutions, including the college ERP portal, with end-to-end ownership.",
+        "Strengthened software design fundamentals and gained hands-on full-stack development experience across multiple domains.",
         "Practiced scalable coding patterns and collaborative delivery through project-centric execution.",
       ],
       technologies: ["Angular", "Spring Boot", "SQL", "MongoDB", "TypeScript"],
-    },
+    }
   ],
 } as const;
 
 const projectsContent = {
   title: "Projects Grid",
   subtitle:
-    "Selected projects across enterprise application development and cloud-native AI engineering.",
+    "Selected projects across enterprise application development and full-stack engineering.",
   projects: [
     {
-      id: "enterprise-solutions",
-      title: "Enterprise Solutions",
+      id: "playincognito",
+      title: "PlayIncognito - Football Tournament Management App",
       description:
-        "Delivered HRMS systems, placement platforms, and service-based applications with cohesive frontend and backend architecture.",
-      techStack: ["Angular", "Spring Boot", "Node.js", "SQL", "MongoDB"],
+        "Engineered a full-stack sports management app for the Nigerian market with custom algorithmic bracket generation and secure tournament registrations.",
+      techStack: ["ReactJS", "ExpressJS", "PostgreSQL", "Flutterwave", "Cloudflare"],
     },
     {
-      id: "colcommute-backend",
-      title: "ColCommute Backend",
+      id: "enterprise-hrms",
+      title: "Enterprise HRMS",
       description:
-        "Designed and built a backend system for routing and carpool workflows, integrating geospatial capabilities and scalable deployment on managed cloud infrastructure.",
-      techStack: ["FastAPI", "Google Maps APIs", "Cloud Run"],
+        "Designed and developed an internal HR system with hierarchical org charts and project mapping capabilities to manage employee directories.",
+      techStack: ["Java", "Spring Boot", "AngularJS", "TailwindCSS", "PostgreSQL"],
     },
     {
-      id: "gen-ai-agentic-framework",
-      title: "Gen AI Agentic Framework",
+      id: "staff-alumni-nexus",
+      title: "Staff-Alumni Nexus Career Portal",
       description:
-        "Engineered an AI-driven framework to automate multi-step workflows using agent orchestration patterns for reliable execution on cloud-native infrastructure.",
-      techStack: ["Google ADK", "Gemini", "GCP"],
-    },
+        "Developed a centralized networking platform to bridge students, alumni, and faculty with features for career development and mentorship tracking.",
+      techStack: ["ReactJS", "ExpressJS", "TailwindCSS", "MySQL"],
+    }
   ],
 } as const;
 
@@ -112,32 +109,29 @@ const skillsContent = {
     "Core strengths spanning backend engineering, frontend delivery, and scalable data-driven architecture.",
   categories: [
     {
-      id: "backend-cloud",
-      title: "Backend & Cloud",
-      description: "Building robust services with secure cloud-native operational practices.",
-      skills: [
-        "Java",
-        "Spring Boot",
-        "Python",
-        "FastAPI",
-        "GCP",
-        "Gcloud CLI",
-        "Cloud Run",
-        "IAM",
-      ],
+      id: "backend-frameworks",
+      title: "Backend & Frameworks",
+      description: "Building robust services and RESTful APIs.",
+      skills: ["Java", "Python", "NodeJS", "ExpressJS", "Spring Boot", "SQL", "NoSQL"],
     },
     {
       id: "frontend",
-      title: "Frontend",
+      title: "Frontend & UI",
       description: "Crafting responsive interfaces and user-focused experiences.",
-      skills: ["Angular", "Next.js", "Tailwind CSS", "Node.js", "TypeScript"],
+      skills: ["ReactJS", "AngularJS", "TypeScript", "JavaScript"],
     },
     {
-      id: "databases-architecture",
-      title: "Databases & Architecture",
-      description: "Designing scalable data layers and reliable full-stack system structure.",
-      skills: ["SQL", "MongoDB", "Firestore", "Microservices", "System Design"],
+      id: "cloud-devops-db",
+      title: "Cloud, DevOps & Databases",
+      description: "Designing scalable data layers and deploying cloud-native applications.",
+      skills: ["GCP", "ADO", "Docker", "Kubernetes", "CI/CD", "PostgreSQL", "MongoDB", "MySQL", "Firestore"],
     },
+    {
+      id: "ai-tools",
+      title: "AI, GenAI & Tools",
+      description: "Integrating modern AI workflows and utilizing developer tools.",
+      skills: ["RAG", "LLM Models", "Prompt Engineering", "Agentic Workflows", "Git", "Linux", "Postman"],
+    }
   ],
 } as const;
 
