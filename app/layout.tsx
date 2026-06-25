@@ -11,6 +11,9 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Jayaprasath",
   description: "Make a knowledge about JP.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
